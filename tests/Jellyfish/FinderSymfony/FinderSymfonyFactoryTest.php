@@ -6,12 +6,12 @@ namespace Jellyfish\FinderSymfony;
 
 use Codeception\Test\Unit;
 
-class FinderFactoryTest extends Unit
+class FinderSymfonyFactoryTest extends Unit
 {
     /**
-     * @var \Jellyfish\FinderSymfony\FinderFactory
+     * @var \Jellyfish\FinderSymfony\FinderSymfonyFacade
      */
-    protected $finderFactory;
+    protected $finderSymfonyFactory;
 
     /**
      * @return void
@@ -20,7 +20,7 @@ class FinderFactoryTest extends Unit
     {
         parent::_before();
 
-        $this->finderFactory = new FinderFactory();
+        $this->finderSymfonyFactory = new FinderSymfonyFactory();
     }
 
     /**
@@ -28,6 +28,6 @@ class FinderFactoryTest extends Unit
      */
     public function testCreate(): void
     {
-        $this->assertInstanceOf(Finder::class, $this->finderFactory->create());
+        static::assertInstanceOf(Finder::class, $this->finderSymfonyFactory->createFinder());
     }
 }

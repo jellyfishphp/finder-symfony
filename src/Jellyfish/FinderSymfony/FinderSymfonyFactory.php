@@ -4,16 +4,15 @@ declare(strict_types=1);
 
 namespace Jellyfish\FinderSymfony;
 
-use Jellyfish\Finder\FinderFactoryInterface;
 use Jellyfish\Finder\FinderInterface;
 use Symfony\Component\Finder\Finder as SymfonyFinder;
 
-class FinderFactory implements FinderFactoryInterface
+class FinderSymfonyFactory
 {
     /**
      * @return \Jellyfish\Finder\FinderInterface
      */
-    public function create(): FinderInterface
+    public function createFinder(): FinderInterface
     {
         return new Finder($this->createSymfonyFinder());
     }
